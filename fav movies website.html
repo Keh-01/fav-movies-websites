@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stories That Shaped Me</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #10121c;
+    color: #f5f2e9;
+    line-height: 1.7;
+}
+
+/* NAVIGATION */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16,18,28,0.97);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #343747;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    color: #ffc857;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ffc857;
+}
+
+/* HOME */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 10%;
+    background:
+    radial-gradient(circle at top left, #553c68, transparent 40%),
+    radial-gradient(circle at bottom right, #75442d, transparent 40%),
+    #10121c;
+}
+
+.hero small {
+    color: #ffc857;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.15;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: #ffc857;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #d2d2d8;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 28px;
+    background: #ffc857;
+    color: #171923;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 85px 9%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #ffc857;
+}
+
+.section-title p {
+    color: #b7b8c2;
+}
+
+/* ABOUT */
+.about {
+    background: #191c29;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin: 20px 0;
+    color: #dedee4;
+}
+
+/* MOVIE CARDS */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.movie-card {
+    background: #1d2130;
+    border: 1px solid #373b4c;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    border-color: #ffc857;
+}
+
+.poster {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #202435;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.movie-card:hover .poster img {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    padding: 25px;
+}
+
+.movie-info h3 {
+    color: #ffc857;
+    margin-bottom: 10px;
+}
+
+.movie-info p {
+    color: #c5c6cf;
+    font-size: 14px;
+}
+
+.lesson {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #343747;
+    color: #ffc857;
+    font-size: 12px;
+}
+
+/* REFLECTION */
+.reflection {
+    background: #191c29;
+}
+
+.reflection-content {
+    max-width: 850px;
+    margin: 40px auto 0;
+}
+
+.reflection-content p {
+    margin: 20px 0;
+    color: #dedee4;
+}
+
+.reflection-content h3 {
+    color: #ffc857;
+    margin-top: 30px;
+}
+
+/* LESSONS */
+.lessons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.lesson-card {
+    background: #202435;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #ffc857;
+}
+
+.lesson-card h3 {
+    color: #ffc857;
+    margin-bottom: 10px;
+}
+
+.lesson-card p {
+    font-size: 14px;
+    color: #d0d0d7;
+}
+
+/* INTERACTIVE QUIZ */
+.interactive {
+    text-align: center;
+}
+
+.quiz-box {
+    max-width: 600px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 15px;
+    background: #202435;
+}
+
+.quiz-box h3 {
+    color: #ffc857;
+    margin-bottom: 15px;
+}
+
+.quiz-box button {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 14px;
+    border: 1px solid #50556a;
+    background: #30364a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.quiz-box button:hover {
+    background: #ffc857;
+    color: #171923;
+}
+
+#result {
+    margin-top: 20px;
+    color: #ffc857;
+    font-weight: bold;
+}
+
+/* CREDITS */
+.credits {
+    background: #191c29;
+    text-align: center;
+}
+
+.credits p {
+    color: #c5c6cf;
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    background: #0b0d14;
+    text-align: center;
+    padding: 25px;
+    color: #999ba8;
+    font-size: 13px;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width: 800px) {
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .movie-grid,
+    .lessons {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    .poster {
+        height: 380px;
+    }
+}
+
+@media(max-width: 400px) {
+    .poster {
+        height: 300px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+
+    <div class="logo">STORIES THAT SHAPED ME</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">My Story</a>
+        <a href="#movies">Movies</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+
+    <small>My Personal Movie Journey</small>
+
+    <h1>
+        Stories That <span>Shaped Me</span>
+    </h1>
+
+    <p>
+        Every story has a lesson, and every lesson can
+        change the way we see the world. These are three
+        movies that left a meaningful impression on me.
+    </p>
+
+    <a href="#movies" class="btn">Explore My Stories</a>
+
+</div>
+
+<!-- MY STORY -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>Behind My Story</h2>
+        <p>More than entertainment, these stories taught me about life.</p>
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            I chose these three movies because each one
+            gives me a different perspective about life.
+            They remind me that watching a movie is not
+            only about enjoying the story but also about
+            understanding its meaning.
+        </p>
+
+        <p>
+            Inside Out taught me to accept my emotions.
+            Swapped reminds me to understand other people's
+            experiences. Heneral Luna made me think about
+            leadership, patriotism, and the importance of unity.
+        </p>
+
+        <p>
+            These stories helped me realize that even fictional
+            characters and historical stories can teach lessons
+            that we can apply in our everyday lives.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- THREE MOVIES -->
+<section id="movies">
+
+    <div class="section-title">
+        <h2>My Three Favorite Movies</h2>
+        <p>Three stories, three different perspectives.</p>
+    </div>
+
+    <div class="movie-grid">
+
+        <!-- INSIDE OUT -->
+        <div class="movie-card">
+
+            <div class="poster">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/p_insideout_19751_af12286c.jpeg"
+                     alt="Inside Out movie poster">
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Inside Out</h3>
+
+                <p>
+                    This movie helped me understand that
+                    emotions are all important. Happiness
+                    is not the only feeling that matters.
+                    Sadness also helps us express ourselves
+                    and connect with other people.
+                </p>
+
+                <span class="lesson">
+                    Lesson: Emotional Awareness
+                </span>
+
+            </div>
+        </div>
+
+        <!-- SWAPPED -->
+        <div class="movie-card">
+
+            <div class="poster">
+                <img src="https://static.wikia.nocookie.net/listofdeaths/images/2/26/Swapped.jpg/revision/latest?cb=20260506180836"
+                     alt="Swapped movie poster">
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Swapped</h3>
+
+                <p>
+                    This movie represents the importance
+                    of seeing situations from another
+                    person's perspective. It reminds me
+                    not to judge others without first
+                    understanding their experiences.
+                </p>
+
+                <span class="lesson">
+                    Lesson: Empathy
+                </span>
+
+            </div>
+        </div>
+
+        <!-- HENERAL LUNA -->
+        <div class="movie-card">
+
+            <div class="poster">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-smBznZRp6m39SeVLAkId_3opfPfCm1__iBWHhTnPZ_NBcGUFw5OfIRbFQTJ6crzO_v5Y&s=10"
+                     alt="Heneral Luna movie poster">
+            </div>
+
+            <div class="movie-info">
+
+                <h3>Heneral Luna</h3>
+
+                <p>
+                    This movie made me reflect on the
+                    importance of loving our country,
+                    having courage, and working together.
+                    It shows how division and personal
+                    interests can affect a greater purpose.
+                </p>
+
+                <span class="lesson">
+                    Lesson: Patriotism and Unity
+                </span>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+<!-- INTERACTIVE QUIZ -->
+<section class="interactive" id="quiz">
+
+    <div class="section-title">
+
+        <h2>Which Lesson Connects With You?</h2>
+
+        <p>Choose the lesson that matters most to you.</p>
+
+    </div>
+
+    <div class="quiz-box">
+
+        <h3>What do you value most in life?</h3>
+
+        <button onclick="showResult('emotions')">
+            Understanding my feelings
+        </button>
+
+        <button onclick="showResult('empathy')">
+            Understanding other people
+        </button>
+
+        <button onclick="showResult('courage')">
+            Courage, unity, and standing for what is right
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 Stories That Shaped Me |
+        A Personal Movie Reflection Website
+    </p>
+
+    <p>
+        Every story leaves a lesson.
+        Every lesson shapes who we become.
+    </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+function showResult(choice) {
+
+    const result = document.getElementById("result");
+
+    if (choice === "emotions") {
+
+        result.innerHTML =
+        "Your lesson is Emotional Awareness! Remember that every emotion has meaning.";
+
+    }
+
+    else if (choice === "empathy") {
+
+        result.innerHTML =
+        "Your lesson is Empathy! Understanding others makes a difference.";
+
+    }
+
+    else if (choice === "courage") {
+
+        result.innerHTML =
+        "Your lesson is Courage and Unity! Stand for what is right and value teamwork.";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
